@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     private float lastKnownPositionX;
     private float lastKnownPositionY;
     private float lastKnownRotation;
-
     public AudioSource Footsteps;
 
     void Start()
@@ -47,10 +46,37 @@ public class PlayerController : MonoBehaviour
         vertical = Input.GetAxisRaw("Vertical"); // Get input vertical
         if (horizontal != 0 && vertical != 0) // Check for diagonal movement
         {
+           // limit movement speed diagonally, so you move at 70% speed
+           horizontal *= moveLimiter;
+           vertical *= moveLimiter;
+        }
+        Vector2 movementVector = new Vector2(horizontal * runSpeed, vertical * runSpeed); //Create movement Vector
+        Move(movementVector); //Call move function
+        Rotate(movementVector); //Call rotate function
+
+        if (body.velocity.magnitude > 0.01) //If player has speed, play walking/footsteps sounds
+        {
+            if (!Footsteps.isPlaying)
+            {
+                Footsteps.Play();
+            }
+        }
+        else
+        {
+            Footsteps.Stop();
+        }
+        TouchMovement();
+    }
+    void TouchMovement() //Moves player
+    {
+        horizontal = SimpleInput.GetAxisRaw("Horizontal"); // Get input horizontal
+        vertical = SimpleInput.GetAxisRaw("Vertical"); // Get input vertical
+        if (horizontal != 0 && vertical != 0) // Check for diagonal movement
+        {
             // limit movement speed diagonally, so you move at 70% speed
             horizontal *= moveLimiter;
             vertical *= moveLimiter;
-        } 
+        }
         Vector2 movementVector = new Vector2(horizontal * runSpeed, vertical * runSpeed); //Create movement Vector
         Move(movementVector); //Call move function
         Rotate(movementVector); //Call rotate function

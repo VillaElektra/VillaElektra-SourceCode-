@@ -671,8 +671,8 @@ GameObject:
   - component: {fileID: 228804771}
   - component: {fileID: 228804770}
   - component: {fileID: 228804769}
-  - component: {fileID: 228804768}
   - component: {fileID: 228804767}
+  - component: {fileID: 228804768}
   m_Layer: 0
   m_Name: LosseLevels
   m_TagString: Untagged
@@ -721,7 +721,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 228804765}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9f5e11d2eb28ae49a951d9a495795af, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a0c88050b857f44eb603fcb25dc57a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sLevelToLoad: LosseLevels
@@ -782,7 +782,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 228804768}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_TargetAssemblyTypeName: LosseLevelsController, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:

@@ -620,7 +620,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 891499900}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: BackToLosseLevels
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

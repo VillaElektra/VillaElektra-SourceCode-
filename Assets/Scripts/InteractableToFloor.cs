@@ -32,9 +32,7 @@ public class InteractableToFloor : MonoBehaviour
             }
             if (Input.GetKeyDown("space")) //If spacebar is pressed, load next scene
             {
-                PlayerPrefs.SetInt("floor", floorGateway);
-                nextFloor.SetActive(true);
-                currentFloor.SetActive(false);
+                UpdateFloor();
             }
         }
         else
@@ -51,5 +49,12 @@ public class InteractableToFloor : MonoBehaviour
                 Spacebar.SetActive(false); //Do not show spacebar
             }
         }
+    }
+    public void UpdateFloor()
+    {
+        PlayerPrefs.SetInt("floor", floorGateway);
+        nextFloor.SetActive(true);
+        currentFloor.SetActive(false);
+        Spacebar.SetActive(false);
     }
 }
